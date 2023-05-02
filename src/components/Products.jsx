@@ -6,7 +6,7 @@ export default function Products() {
 
     useEffect(() => {
         async function getFireBase() {
-            const url = 'https://slutproject-produkt-advjs-default-rtdb.europe-west1.firebasedatabase.app/products.json';
+            const url = 'https://ajutprojekt-default-rtdb.europe-west1.firebasedatabase.app/products.json';
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
@@ -17,9 +17,7 @@ export default function Products() {
     }, []);
 
     return (
-        <div>
-            <Images imgSrc={products[0].imgSrc} />
-        </div>
+        <Images imgSrc={products[0].imgSrc}/>
     );
 
 }
