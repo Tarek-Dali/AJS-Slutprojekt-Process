@@ -1,3 +1,7 @@
+body{
+    background-color: darkcyan;
+}
+
 .img-size{
     width: 200px;
 }
@@ -8,4 +12,13 @@
     /* border: 2px red solid; */
     width: 53%;
     flex-wrap: wrap;
+}
+
+.pageButton{
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+    width: 6%;
+    /* border: solid red 2px; */
+    
 }

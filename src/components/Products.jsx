@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import Product from './Product';
+import ToShoppingCart from './ToShoppingCart';
 
-export default function Products({check}) {
+export default function Products({ check }) {
     const [stock, setStock] = useState(0);
     const [products, setProducts] = useState();
 
@@ -25,13 +26,15 @@ export default function Products({check}) {
     return (
         <>
             {products ?
-
-                <div className='productsContainer'>
-                    <Product product={products[0]} check={check} />
-                    <Product product={products[1]} check={check} />
-                    <Product product={products[2]} check={check} />
-                    <Product product={products[3]} check={check} />
-                    <Product product={products[4]} check={check} />
+                <div>
+                    <div className='productsContainer'>
+                        <Product product={products[0]} />
+                        <Product product={products[1]} />
+                        <Product product={products[2]} />
+                        <Product product={products[3]} />
+                        <Product product={products[4]} />
+                    </div>
+                    <ToShoppingCart check={check} />
                 </div>
 
                 :

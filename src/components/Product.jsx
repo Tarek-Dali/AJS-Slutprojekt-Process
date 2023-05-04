@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
 
-export default function Product({product, check}) {
+export default function Product({product}) {
     // const [product, setProducts] = useState();
-
-    // console.log(object.product);
+    
     console.log(product);
-
-    console.log(typeof check)
     
 
     return (
@@ -16,7 +13,7 @@ export default function Product({product, check}) {
                 <h3>{product.name}</h3>
                 <h3>Price: {product.price}</h3>
                 <h3>Stock: {product.stock}</h3>
-                <button onClick={check} >Test</button>
+                <button>Add to cart</button>
             </div>
         </>
     );
