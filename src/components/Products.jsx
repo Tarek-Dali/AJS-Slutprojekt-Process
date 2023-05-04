@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import Product from './Product';
 
-export default function Products() {
+export default function Products({check}) {
     const [stock, setStock] = useState(0);
     const [products, setProducts] = useState();
+
+    console.log(typeof check);
 
     useEffect(() => {
         async function getFireBase() {
@@ -15,29 +17,26 @@ export default function Products() {
 
         getFireBase();
     }, []);
-    
-    function stockSubtract(){
+
+    function stockSubtract() {
         setStock(stock - 1);
     }
 
     return (
         <>
             {products ?
-                <>
-                    <div>
-                        <Product product={products[0]} />
-                        <Product product={products[1]} />
-                        <Product product={products[2]} />
-                        <Product product={products[3]} />
-                        <Product product={products[4]} />
-                    </div>
-                </>
+
+                <div className='productsContainer'>
+                    <Product product={products[0]} check={check} />
+                    <Product product={products[1]} check={check} />
+                    <Product product={products[2]} check={check} />
+                    <Product product={products[3]} check={check} />
+                    <Product product={products[4]} check={check} />
+                </div>
+
                 :
                 <p>Loading...</p>
             }
         </>
     );
 }
-
-
-
