@@ -1,23 +1,19 @@
 import { useEffect, useState } from 'react';
 
-export default function Product() {
-    const [products, setProducts] = useState();
+export default function Product(object) {
+    // const [product, setProducts] = useState();
 
-    useEffect(() => {
-        async function getFireBase() {
-            const url = 'https://ajutprojekt-default-rtdb.europe-west1.firebasedatabase.app/products.json';
-            const response = await fetch(url);
-            const data = await response.json();
-            console.log(data);
-            setProducts(data);
-        }
-
-        getFireBase();
-    }, []);
+    console.log(object.product.imgSrc);
 
     return (
         <>
-            {products ? <img src={products[0].imgSrc} alt="product" className='img-size'/> : <p>Loading...</p>}
+            <div className='productsContainer'>
+                <img src={object.product.imgSrc} alt="product" className='img-size' />
+                <h3>{object.product.name}</h3>
+                <h3>Price: {object.product.price}</h3>
+                <h3>Stock: {object.product.stock}</h3>
+
+            </div>
         </>
     );
 
