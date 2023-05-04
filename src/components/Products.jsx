@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Product from './Product';
 
 export default function Products() {
     // const [products, setProducts] = useState([]);
@@ -17,7 +18,7 @@ export default function Products() {
 
     return (
         <>
-            <h1>Placeholder</h1>
+            <Product/>
         </>
     );
 
