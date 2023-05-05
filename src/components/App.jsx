@@ -6,30 +6,33 @@ import { useEffect, useState } from 'react';
 export default function App() {
     let [checker, setChecker] = useState(true);
     let [info, setInfo] = useState();
-    let [product1, setProduct1] = useState();
-    let [product2, setProduct2] = useState();
-    let [product3, setProduct3] = useState();
-    let [product4, setProduct4] = useState();
-    let [product5, setProduct5] = useState();
+    let [amount, setAmount] = useState([0, 0, 0, 0, 0]);
+    let [testing, setTesting] = useState(false);
+    let [testing2, setTesting2] = useState([]);
 
     useEffect(() => {
         async function getFireBase() {
             const url = 'https://ajutprojekt-default-rtdb.europe-west1.firebasedatabase.app/products.json';
             const response = await fetch(url);
             const data = await response.json();
-            setProduct1(data[0]);
-            setProduct2(data[1]);
-            setProduct3(data[2]);
-            setProduct4(data[3]);
-            setProduct5(data[4]);
             setInfo(data);
+            setTesting(true);
         }
 
         getFireBase();
     }, []);
 
-    function productAdd(object) {
+    function futureData(object, place) {
+        
+        object.stock-= 1;
+        info[place] = object;
+        setTesting2(info[place] = object);
+        console.log(testing2);
+    }
 
+    function addedAmount(object, place){
+        amount[place] += 1;
+        setAmount();
     }
 
     function check() {
@@ -38,10 +41,10 @@ export default function App() {
 
     return (
         <>
-            {info ?
+            {testing?
                 <>
                     {checker ?
-                        <Products check={check} product1={product1} product2={product2} product3={product3} product4={product4} product5={product5} />
+                        <Products check={check} info={info} futureData={futureData} />
                         :
                         <ShoppingCart />
                     }

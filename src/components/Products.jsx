@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import Product from './Product';
 import ToShoppingCart from './ToShoppingCart';
 
-export default function Products({ check, product1, product2, product3, product4, product5 }) {
+export default function Products({ check, info, futureData }) {
 
-    console.log(typeof check);
+    // console.log(typeof check);
 
 
     return (
@@ -12,11 +12,11 @@ export default function Products({ check, product1, product2, product3, product4
 
             <div>
                 <div className='productsContainer'>
-                    <Product product={product1} />
-                    <Product product={product2} />
-                    <Product product={product3} />
-                    <Product product={product4} />
-                    <Product product={product5} />
+                    <Product product={info[0]} futureData={futureData} place= {0}/>
+                    <Product product={info[1]} futureData={futureData} place= {1}/>
+                    <Product product={info[2]} futureData={futureData} place= {2}/>
+                    <Product product={info[3]} futureData={futureData} place= {3}/>
+                    <Product product={info[4]} futureData={futureData} place= {4}/>
                 </div>
                 <ToShoppingCart check={check} />
             </div>
