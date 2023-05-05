@@ -1,5 +1,5 @@
 
-export default function ToShoppingCart({check}) {
+export default function ToShoppingCart({ check }) {
 
 
     return (

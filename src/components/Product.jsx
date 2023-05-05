@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-export default function Product({product}) {
+export default function Product({ product }) {
     // const [product, setProducts] = useState();
-    
+
     console.log(product);
-    
+
 
     return (
         <>
