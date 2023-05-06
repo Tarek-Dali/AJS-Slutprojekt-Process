@@ -7,7 +7,7 @@ export default function App() {
     let [checker, setChecker] = useState(true);
     let [info, setInfo] = useState();
     let [amount, setAmount] = useState([0, 0, 0, 0, 0]);
-    let [testing, setTesting] = useState(false);
+    let [checker2, setTesting] = useState(false);
     let [testing2, setTesting2] = useState([]);
 
     useEffect(() => {
@@ -26,13 +26,7 @@ export default function App() {
         
         object.stock-= 1;
         info[place] = object;
-        setTesting2(info[place] = object);
-        console.log(testing2);
-    }
-
-    function addedAmount(object, place){
-        amount[place] += 1;
-        setAmount();
+        setInfo((prev) => ({...info}));
     }
 
     function check() {
@@ -41,7 +35,7 @@ export default function App() {
 
     return (
         <>
-            {testing?
+            {checker2?
                 <>
                     {checker ?
                         <Products check={check} info={info} futureData={futureData} />
