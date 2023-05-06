@@ -1,6 +1,7 @@
-import EmptyCartButton from "./emptyCartButton";
+import EmptyCartButton from "./EmptyCartButton";
+import CompletePurchase from "./CompletePurchase";
 
-export default function ShoppingCart({ setLoadingFinished, emptyCart, check, info, amount}) {
+export default function ShoppingCart({ putFireBase, setLoadingFinished, emptyCart, check, info, amount}) {
     console.log(amount);
 
     const h2Elements = [];
@@ -20,6 +21,7 @@ export default function ShoppingCart({ setLoadingFinished, emptyCart, check, inf
                 {h2Elements}
                 <h2>to the cart and the total price is {price}</h2>
             </div>
+            <CompletePurchase putFireBase={putFireBase} setLoadingFinished={setLoadingFinished} emptyCart={emptyCart} check={check}/>
             <EmptyCartButton setLoadingFinished={setLoadingFinished} emptyCart={emptyCart} check={check}/>
         </>
     );
