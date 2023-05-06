@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function Product({ product, futureData, place }) {
+export default function Product({ product, updateInfoStock, place }) {
     // const [product, setProducts] = useState();
 
     // console.log(product);
@@ -13,7 +13,7 @@ export default function Product({ product, futureData, place }) {
                 <h3>{product.name}</h3>
                 <h3>Price: {product.price}</h3>
                 <h3>Stock: {product.stock}</h3>
-                <button onClick={() => futureData(product, place)}>Add to cart</button>
+                <button onClick={() => updateInfoStock(product, place)}>Add to cart</button>
             </div>
         </>
     );

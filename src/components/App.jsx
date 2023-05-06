@@ -8,7 +8,6 @@ export default function App() {
     let [info, setInfo] = useState();
     let [amount, setAmount] = useState([0, 0, 0, 0, 0]);
     let [checker2, setTesting] = useState(false);
-    let [testing2, setTesting2] = useState([]);
 
     useEffect(() => {
         async function getFireBase() {
@@ -22,11 +21,16 @@ export default function App() {
         getFireBase();
     }, []);
 
-    function futureData(object, place) {
-        
-        object.stock-= 1;
-        info[place] = object;
-        setInfo((prev) => ({...info}));
+    function updateInfoStock(object, place) {
+        if (object.stock > 0) {
+            object.stock -= 1;
+
+            info[place] = object;
+            setInfo((prev) => ([ ...prev ]));
+
+            amount[place] += 1;
+            setAmount((prev) => ([ ...prev ]));
+        }
     }
 
     function check() {
@@ -35,10 +39,10 @@ export default function App() {
 
     return (
         <>
-            {checker2?
+            {checker2 ?
                 <>
                     {checker ?
-                        <Products check={check} info={info} futureData={futureData} />
+                        <Products check={check} info={info} updateInfoStock={updateInfoStock} />
                         :
                         <ShoppingCart />
                     }
