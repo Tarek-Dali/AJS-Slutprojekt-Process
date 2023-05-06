@@ -33,8 +33,13 @@ export default function App() {
         }
     }
 
+    function emptyCart(){
+        
+        setAmount((prev) => ([ ...prev = [0, 0, 0, 0, 0] ]));
+    }
+
     function check() {
-        setChecker(false);
+        setChecker((prev) => (!prev));
     }
 
     return (
@@ -44,7 +49,7 @@ export default function App() {
                     {checker ?
                         <Products check={check} info={info} updateInfoStock={updateInfoStock} />
                         :
-                        <ShoppingCart info={info} amount={amount}/>
+                        <ShoppingCart emptyCart={emptyCart} check={check} info={info} amount={amount}/>
                     }
                 </>
                 :

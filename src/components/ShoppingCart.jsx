@@ -1,6 +1,7 @@
-// import PutToFirebase from "./PutToFirebase";
+import EmptyCartButton from "./emptyCartButton";
 
-export default function ShoppingCart({ info, amount}) {
+export default function ShoppingCart({ emptyCart, check, info, amount}) {
+    console.log(amount);
 
     const h2Elements = [];
     let price = 0;
@@ -19,6 +20,7 @@ export default function ShoppingCart({ info, amount}) {
                 {h2Elements}
                 <h2>to the cart and the total price is {price}</h2>
             </div>
+            <EmptyCartButton emptyCart={emptyCart} check={check}/>
         </>
     );
 }
