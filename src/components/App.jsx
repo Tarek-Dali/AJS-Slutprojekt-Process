@@ -44,7 +44,7 @@ export default function App() {
                     {checker ?
                         <Products check={check} info={info} updateInfoStock={updateInfoStock} />
                         :
-                        <ShoppingCart />
+                        <ShoppingCart info={info} amount={amount}/>
                     }
                 </>
                 :
