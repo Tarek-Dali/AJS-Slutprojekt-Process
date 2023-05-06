@@ -1,6 +1,6 @@
 import EmptyCartButton from "./emptyCartButton";
 
-export default function ShoppingCart({ emptyCart, check, info, amount}) {
+export default function ShoppingCart({ setLoadingFinished, emptyCart, check, info, amount}) {
     console.log(amount);
 
     const h2Elements = [];
@@ -20,7 +20,7 @@ export default function ShoppingCart({ emptyCart, check, info, amount}) {
                 {h2Elements}
                 <h2>to the cart and the total price is {price}</h2>
             </div>
-            <EmptyCartButton emptyCart={emptyCart} check={check}/>
+            <EmptyCartButton setLoadingFinished={setLoadingFinished} emptyCart={emptyCart} check={check}/>
         </>
     );
 }

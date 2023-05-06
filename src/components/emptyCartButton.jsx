@@ -1,8 +1,8 @@
-export default function EmptyCartButton({ emptyCart, check}) {
+export default function EmptyCartButton({ setLoadingFinished, emptyCart, check}) {
 
     return (
         <>
-            <button onClick={() => {check(); emptyCart();}} className="pageButton">To products</button>
+            <button onClick={() => {check(); emptyCart(); setLoadingFinished(false);}} className="pageButton">Cancel</button>
         </>
     );
 }

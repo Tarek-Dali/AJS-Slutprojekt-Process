@@ -7,7 +7,7 @@ export default function App() {
     let [checker, setChecker] = useState(true);
     let [info, setInfo] = useState();
     let [amount, setAmount] = useState([0, 0, 0, 0, 0]);
-    let [checker2, setTesting] = useState(false);
+    let [loadingFinished, setLoadingFinished] = useState(false);
 
     useEffect(() => {
         async function getFireBase() {
@@ -15,11 +15,11 @@ export default function App() {
             const response = await fetch(url);
             const data = await response.json();
             setInfo(data);
-            setTesting(true);
+            setLoadingFinished(true);
         }
 
         getFireBase();
-    }, []);
+    }, [loadingFinished]);
 
     function updateInfoStock(object, place) {
         if (object.stock > 0) {
@@ -44,12 +44,12 @@ export default function App() {
 
     return (
         <>
-            {checker2 ?
+            {loadingFinished ?
                 <>
                     {checker ?
                         <Products check={check} info={info} updateInfoStock={updateInfoStock} />
                         :
-                        <ShoppingCart emptyCart={emptyCart} check={check} info={info} amount={amount}/>
+                        <ShoppingCart setLoadingFinished={setLoadingFinished} emptyCart={emptyCart} check={check} info={info} amount={amount}/>
                     }
                 </>
                 :
