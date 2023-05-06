@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
 
 export default function Product({ product, updateInfoStock, place }) {
-    // const [product, setProducts] = useState();
-
-    // console.log(product);
-
 
     return (
         <>

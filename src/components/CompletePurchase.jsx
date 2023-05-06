@@ -2,7 +2,7 @@ export default function CompletePurchase({ putFireBase, setLoadingFinished, empt
 
     return (
         <>
-            <button onClick={() => {putFireBase(); check(); emptyCart(); setLoadingFinished(false);}} className="pageButton">Complete purchase</button>
+            <button onClick={() => {putFireBase(); check(); emptyCart(); setLoadingFinished()}} className="pageButton">Complete purchase</button>
         </>
     );
 }

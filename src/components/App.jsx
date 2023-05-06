@@ -13,10 +13,6 @@ export default function App() {
 
     useEffect(() => {
         async function getFireBase() {
-            
-            if(info && loadingFinished == false){
-                alert('Purchase complete');
-            }
             const response = await fetch(url);
             const data = await response.json();
             setInfo(data);
@@ -27,6 +23,7 @@ export default function App() {
     }, [loadingFinished]);
 
     async function putFireBase() {
+        alert('Purchase complete');
     
         const options = {
             method: 'PUT',
@@ -69,7 +66,13 @@ export default function App() {
                     {checker ?
                         <Products check={check} info={info} updateInfoStock={updateInfoStock} />
                         :
-                        <ShoppingCart putFireBase={putFireBase} setLoadingFinished={setLoadingFinished} emptyCart={emptyCart} check={check} info={info} amount={amount}/>
+                        <ShoppingCart 
+                        putFireBase={putFireBase} 
+                        setLoadingFinished={setLoadingFinished} 
+                        emptyCart={emptyCart} 
+                        check={check} 
+                        info={info} 
+                        amount={amount}/>
                     }
                 </>
                 :
