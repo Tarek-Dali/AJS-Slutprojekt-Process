@@ -19,7 +19,7 @@ button{
 .productsContainer {
     display: flex;
     margin: auto;
-    width: 53.5%;
+    width: 54.5%;
     flex-wrap: wrap;
     text-align: center;
     gap: 2px;
@@ -27,13 +27,14 @@ button{
 
 .productsContainer div{
     border: black solid 1px;
+    width: 200px;
 }
 
 .pageButton {
     display: flex;
     margin: auto;
     margin-top: 50px;
-    width: 6%;
+    width: 120px;
 }
 
 #addedProductsText{
