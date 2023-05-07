@@ -2,15 +2,17 @@ body {
     background-color: darkcyan;
 }
 
-#title{
+#title {
     color: yellow;
 }
 
-button{
+button {
     width: 100%;
     height: 30px;
     background-color: antiquewhite;
 }
+
+/* -- Products elements css */
 
 .img-size {
     width: 200px;
@@ -25,7 +27,7 @@ button{
     gap: 2px;
 }
 
-.productsContainer div{
+.productsContainer div {
     border: black solid 1px;
     width: 200px;
 }
@@ -33,29 +35,69 @@ button{
 .productsContainer div button:active {
     background-color: orange;
 }
+/* -- */
 
-.pageButton {
-    display: flex;
+/* -- Side cart display*/
+.toShopCartButton {
     margin: auto;
-    margin-top: 50px;
-    width: 120px;
+    margin-bottom: 5px;
+    margin-left: 33.3%;
+    margin-right: 33.3%;
+    width: 33.4%;
+    background-color: orange;
 }
 
-#addedProductsText{
+#cartDisplayTitle {
+    color: black;
+}
+
+.cartDisplay {
+    text-align: center;
+    background-color: green;
+    border: 2px solid black;
+    position: fixed;
+    width: 380px;
+    left: 1500px;
+    top: 150px;
+}
+/* -- */
+
+/* -- Shopping cart div css */
+.cartDisplay h2 {
+    color: cornsilk;
+}
+
+#shoppingCartTitle {
+    color: black;
+}
+
+.shoppingCartText {
+    background-color: green;
+    border: 2px solid black;
     margin: auto;
     margin-top: 100px;
-    width: 50%;
+    width: 30%;
     text-align: center;
 }
 
-#addedProductsText button{
-    width: 200px;
+.shoppingCartText h2 {
+    color: cornsilk;
 }
+
+.shoppingCartText button {
+    width: 200px;
+    background-color: orange;
+}
+/* -- */
 
 
 @media screen and (max-width: 1536px) and (max-height: 864px) {
-    .img-size{
+    .img-size {
         width: 150px;
+    }
+
+    .cartDisplay {
+        left: 1116px;
     }
 }
 
@@ -63,11 +105,19 @@ button{
     .img-size {
         width: 50px;
     }
+
     .productsContainer {
-        font-size: 10px;
+        font-size: 30px;
     }
-    button{
+
+    button {
+        width: 200px;
+        font-size: 30px;
+    }
+
+    .cartDisplay {
+        font-size: 30px;
+        left: 0;
         width: 100px;
-        font-size: 10px;
     }
 }

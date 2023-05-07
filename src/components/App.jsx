@@ -41,6 +41,7 @@ export default function App() {
         await fetch(url, options);
     }
 
+    // Reduces stock of a product by 1 while adding 1 in amount to keep count of products added
     function updateDataStock(object, place) {
         if (object.stock > 0) {
             object.stock -= 1;
@@ -51,6 +52,7 @@ export default function App() {
         }
     }
 
+    // Sets amount to 0's again
     function emptyCart() {
         let arrayLength = data.length;
         setAmount(Array(arrayLength).fill(0));
@@ -70,7 +72,7 @@ export default function App() {
                     <Router>
                         <Switch>
                             <Route exact path="/">
-                                <Products data={data} updateDataStock={updateDataStock} />
+                                <Products data={data} updateDataStock={updateDataStock} amount={amount} />
                             </Route>
                             <Route path="/shoppingcart">
                                 <ShoppingCart functions={functions} data={data} amount={amount} />
