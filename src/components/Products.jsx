@@ -1,6 +1,6 @@
 import Product from './Product';
 
-export default function Products({ check, info, updateInfoStock }) {
+export default function Products({ productPageBoolean, info, updateInfoStock }) {
 
     return (
         <>
@@ -10,9 +10,7 @@ export default function Products({ check, info, updateInfoStock }) {
                         <Product key={index} product={product} updateInfoStock={updateInfoStock} place={index} />
                     ))}
                 </div>
-                <button onClick={check} className="pageButton">
-                    To shopping cart
-                </button>
+                <button onClick={productPageBoolean} className="pageButton"> To shopping cart </button>
             </div>
         </>
     );

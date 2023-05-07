@@ -1,8 +1,8 @@
-export default function CompletePurchase({ putFireBase, setLoadingFinished, emptyCart, check}) {
+export default function CompletePurchase({ functions }) {
 
     return (
         <>
-            <button onClick={() => {putFireBase(); check(); emptyCart(); setLoadingFinished()}} className="pageButton">Complete purchase</button>
+            <button onClick={() => { functions.putFireBase(); functions.productPageBoolean(); functions.emptyCart(); functions.setLoadingFinished() }} className="pageButton">Complete purchase</button>
         </>
     );
 }

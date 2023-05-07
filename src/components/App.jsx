@@ -3,24 +3,29 @@ import Products from './Products'
 import ShoppingCart from './ShoppingCart';
 import { useEffect, useState } from 'react';
 
+let functions;
+
+
 const url = 'https://ajutprojekt-default-rtdb.europe-west1.firebasedatabase.app/products.json';
 
 export default function App() {
-    let [checker, setChecker] = useState(true);
-    let [info, setInfo] = useState();
-    let [amount, setAmount] = useState([0, 0, 0, 0, 0]);
-    let [loadingFinished, setLoadingFinished] = useState(false);
+    const [productPage, setProductPage] = useState(true);
+    const [info, setInfo] = useState();
+    const [amount, setAmount] = useState();
+    const [loadingFinished, setLoadingFinished] = useState(false);
 
     useEffect(() => {
         async function getFireBase() {
             const response = await fetch(url);
             const data = await response.json();
+            setAmount(Array(data.length).fill(0));
             setInfo(data);
             setLoadingFinished(true);
         }
 
         getFireBase();
     }, [loadingFinished]);
+
 
     async function putFireBase() {
         alert('Purchase complete');
@@ -36,37 +41,41 @@ export default function App() {
         await fetch(url, options);
     }
 
-
-
     function updateInfoStock(object, place) {
         if (object.stock > 0) {
             object.stock -= 1;
-
-            info[place] = object;
-            setInfo((prev) => ([...prev]));
-
-            amount[place] += 1;
-            setAmount((prev) => ([...prev]));
+            
+            const updatedAmount = [...amount];
+            updatedAmount[place] += 1;
+            setAmount(updatedAmount);
         }
     }
 
     function emptyCart() {
-
-        setAmount((prev) => [...prev = [0, 0, 0, 0, 0]]);
+        let arrayLength = info.length;
+        setAmount(Array(arrayLength).fill(0));
     }
 
-    function check() {
-        setChecker((prev) => (!prev));
+    function productPageBoolean() {
+        setProductPage(boolean => !boolean);
     }
+
+    functions = {
+        putFireBase,
+        setLoadingFinished,
+        emptyCart,
+        productPageBoolean
+    }
+
 
     return (
         <>
             {loadingFinished ?
                 <>
-                    {checker ?
-                        <Products check={check} info={info} updateInfoStock={updateInfoStock} />
+                    {productPage ?
+                        <Products productPageBoolean={productPageBoolean} info={info} updateInfoStock={updateInfoStock} />
                         :
-                        <ShoppingCart putFireBase={putFireBase} setLoadingFinished={setLoadingFinished} emptyCart={emptyCart} check={check} info={info} amount={amount} />
+                        <ShoppingCart functions={functions} info={info} amount={amount} />
                     }
                 </>
                 :

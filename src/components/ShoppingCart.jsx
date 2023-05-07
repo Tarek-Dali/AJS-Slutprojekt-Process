@@ -1,7 +1,7 @@
 import EmptyCartButton from "./EmptyCartButton";
 import CompletePurchase from "./CompletePurchase";
 
-export default function ShoppingCart({ putFireBase, setLoadingFinished, emptyCart, check, info, amount}) {
+export default function ShoppingCart({ functions, info, amount }) {
 
     const h2Elements = [];
     let price = 0;
@@ -18,10 +18,10 @@ export default function ShoppingCart({ putFireBase, setLoadingFinished, emptyCar
             <div>
                 <h2>You added </h2>
                 {h2Elements}
-                <h2>to the cart and the total price is {price}</h2>
+                <h2>to the cart and the total price is {price} kr</h2>
             </div>
-            <CompletePurchase putFireBase={putFireBase} setLoadingFinished={setLoadingFinished} emptyCart={emptyCart} check={check}/>
-            <EmptyCartButton setLoadingFinished={setLoadingFinished} emptyCart={emptyCart} check={check}/>
+            <CompletePurchase functions={functions} />
+            <EmptyCartButton functions={functions} />
         </>
     );
 }
