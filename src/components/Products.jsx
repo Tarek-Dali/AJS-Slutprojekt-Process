@@ -1,17 +1,20 @@
 import Product from './Product';
+import { Link } from 'react-router-dom';
 
-export default function Products({ productPageBoolean, info, updateInfoStock }) {
+export default function Products({ data, updateDataStock }) {
 
     return (
         <>
-        <h1 id='title'>Swedonia Express</h1>
+            <h1 id='title'>Swedonia Express</h1>
             <div>
                 <div className="productsContainer">
-                    {info.map((product, index) => (
-                        <Product key={index} product={product} updateInfoStock={updateInfoStock} place={index} />
+                    {data.map((product, index) => (
+                        <Product key={index} product={product} updateDataStock={updateDataStock} place={index} />
                     ))}
                 </div>
-                <button onClick={productPageBoolean} className="pageButton"> To shopping cart </button>
+                <Link to="/shoppingcart">
+                    <button className="pageButton"> To shopping cart </button>
+                </Link>
             </div>
         </>
     );

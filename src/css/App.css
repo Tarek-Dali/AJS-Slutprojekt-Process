@@ -30,6 +30,10 @@ button{
     width: 200px;
 }
 
+.productsContainer div button:active {
+    background-color: orange;
+}
+
 .pageButton {
     display: flex;
     margin: auto;

@@ -2,6 +2,7 @@ import '../css/App.css'
 import Products from './Products'
 import ShoppingCart from './ShoppingCart';
 import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 let functions;
 
@@ -9,8 +10,7 @@ let functions;
 const url = 'https://ajutprojekt-default-rtdb.europe-west1.firebasedatabase.app/products.json';
 
 export default function App() {
-    const [productPage, setProductPage] = useState(true);
-    const [info, setInfo] = useState();
+    const [data, setData] = useState();
     const [amount, setAmount] = useState();
     const [loadingFinished, setLoadingFinished] = useState(false);
 
@@ -19,7 +19,7 @@ export default function App() {
             const response = await fetch(url);
             const data = await response.json();
             setAmount(Array(data.length).fill(0));
-            setInfo(data);
+            setData(data);
             setLoadingFinished(true);
         }
 
@@ -32,7 +32,7 @@ export default function App() {
 
         const options = {
             method: 'PUT',
-            body: JSON.stringify(info),
+            body: JSON.stringify(data),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
@@ -41,10 +41,10 @@ export default function App() {
         await fetch(url, options);
     }
 
-    function updateInfoStock(object, place) {
+    function updateDataStock(object, place) {
         if (object.stock > 0) {
             object.stock -= 1;
-            
+
             const updatedAmount = [...amount];
             updatedAmount[place] += 1;
             setAmount(updatedAmount);
@@ -52,19 +52,14 @@ export default function App() {
     }
 
     function emptyCart() {
-        let arrayLength = info.length;
+        let arrayLength = data.length;
         setAmount(Array(arrayLength).fill(0));
-    }
-
-    function productPageBoolean() {
-        setProductPage(boolean => !boolean);
     }
 
     functions = {
         putFireBase,
         setLoadingFinished,
-        emptyCart,
-        productPageBoolean
+        emptyCart
     }
 
 
@@ -72,11 +67,16 @@ export default function App() {
         <>
             {loadingFinished ?
                 <>
-                    {productPage ?
-                        <Products productPageBoolean={productPageBoolean} info={info} updateInfoStock={updateInfoStock} />
-                        :
-                        <ShoppingCart functions={functions} info={info} amount={amount} />
-                    }
+                    <Router>
+                        <Switch>
+                            <Route exact path="/">
+                                <Products data={data} updateDataStock={updateDataStock} />
+                            </Route>
+                            <Route path="/shoppingcart">
+                                <ShoppingCart functions={functions} data={data} amount={amount} />
+                            </Route>
+                        </Switch>
+                    </Router>
                 </>
                 :
                 <h1>Loading product information</h1>

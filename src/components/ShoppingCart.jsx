@@ -1,15 +1,15 @@
 import EmptyCartButton from "./EmptyCartButton";
 import CompletePurchase from "./CompletePurchase";
 
-export default function ShoppingCart({ functions, info, amount }) {
+export default function ShoppingCart({ functions, data, amount }) {
 
     const h2Elements = [];
     let price = 0;
 
-    for (let i = 0; i < info.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         if (amount[i] != 0) {
-            h2Elements.push(<h2 key={i}>{amount[i]} {info[i].name}</h2>);
-            price += amount[i] * info[i].price;
+            h2Elements.push(<h2 key={i}>{amount[i]} {data[i].name}</h2>);
+            price += amount[i] * data[i].price;
         }
     }
 
