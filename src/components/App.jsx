@@ -24,7 +24,7 @@ export default function App() {
 
     async function putFireBase() {
         alert('Purchase complete');
-    
+
         const options = {
             method: 'PUT',
             body: JSON.stringify(info),
@@ -32,27 +32,27 @@ export default function App() {
                 "Content-type": "application/json; charset=UTF-8"
             }
         }
-    
+
         await fetch(url, options);
     }
 
-    
+
 
     function updateInfoStock(object, place) {
         if (object.stock > 0) {
             object.stock -= 1;
 
             info[place] = object;
-            setInfo((prev) => ([ ...prev ]));
+            setInfo((prev) => ([...prev]));
 
             amount[place] += 1;
-            setAmount((prev) => ([ ...prev ]));
+            setAmount((prev) => ([...prev]));
         }
     }
 
-    function emptyCart(){
-        
-        setAmount((prev) => [ ...prev = [0, 0, 0, 0, 0] ]);
+    function emptyCart() {
+
+        setAmount((prev) => [...prev = [0, 0, 0, 0, 0]]);
     }
 
     function check() {
@@ -66,13 +66,7 @@ export default function App() {
                     {checker ?
                         <Products check={check} info={info} updateInfoStock={updateInfoStock} />
                         :
-                        <ShoppingCart 
-                        putFireBase={putFireBase} 
-                        setLoadingFinished={setLoadingFinished} 
-                        emptyCart={emptyCart} 
-                        check={check} 
-                        info={info} 
-                        amount={amount}/>
+                        <ShoppingCart putFireBase={putFireBase} setLoadingFinished={setLoadingFinished} emptyCart={emptyCart} check={check} info={info} amount={amount} />
                     }
                 </>
                 :

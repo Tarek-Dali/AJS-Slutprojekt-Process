@@ -22,3 +22,21 @@ body {
     /* border: solid red 2px; */
 
 }
+
+@media screen and (max-width: 1920px) {
+    body {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1536px) {
+    body {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    body {
+        width: 50%;
+    }
+}

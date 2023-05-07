@@ -2,7 +2,6 @@ import EmptyCartButton from "./EmptyCartButton";
 import CompletePurchase from "./CompletePurchase";
 
 export default function ShoppingCart({ putFireBase, setLoadingFinished, emptyCart, check, info, amount}) {
-    console.log(amount);
 
     const h2Elements = [];
     let price = 0;
