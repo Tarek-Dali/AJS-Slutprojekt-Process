@@ -2,7 +2,7 @@ import '../css/App.css'
 import Products from './Products'
 import ShoppingCart from './ShoppingCart';
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 let functions;
 
