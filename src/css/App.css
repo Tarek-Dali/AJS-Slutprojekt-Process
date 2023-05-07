@@ -9,10 +9,8 @@ body {
 .productsContainer {
     display: flex;
     margin: auto;
-    /* border: 2px red solid; */
     width: 53%;
     flex-wrap: wrap;
-    font-size: 10px;
 }
 
 .pageButton {
@@ -20,8 +18,6 @@ body {
     margin: auto;
     margin-top: 50px;
     width: 6%;
-    /* border: solid red 2px; */
-
 }
 
 
