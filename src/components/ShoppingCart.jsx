@@ -15,13 +15,14 @@ export default function ShoppingCart({ functions, info, amount }) {
 
     return (
         <>
-            <div>
+            <div id="addedProductsText">
                 <h2>You added </h2>
                 {h2Elements}
                 <h2>to the cart and the total price is {price} kr</h2>
-            </div>
+            
             <CompletePurchase functions={functions} />
             <EmptyCartButton functions={functions} />
+            </div>
         </>
     );
 }

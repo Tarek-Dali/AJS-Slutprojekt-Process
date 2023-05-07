@@ -4,6 +4,7 @@ export default function Products({ productPageBoolean, info, updateInfoStock }) 
 
     return (
         <>
+        <h1 id='title'>Swedonia Express</h1>
             <div>
                 <div className="productsContainer">
                     {info.map((product, index) => (
