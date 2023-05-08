@@ -55,7 +55,7 @@ button {
     text-align: center;
     background-color: green;
     border: 2px solid black;
-    position: fixed;
+    position: absolute;
     width: 380px;
     left: 1500px;
     top: 150px;
@@ -97,7 +97,17 @@ button {
     }
 
     .cartDisplay {
-        left: 1116px;
+        top: 50px;
+        left: 1216px;
+        width: 250px;
+    }
+    .toShopCartButton {
+        margin: auto;
+        margin-bottom: 5px;
+        margin-left: 26%;
+        margin-right: 26%;
+        width: 50%;
+        background-color: orange;
     }
 }
 
