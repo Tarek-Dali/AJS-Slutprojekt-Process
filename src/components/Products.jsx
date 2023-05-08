@@ -19,9 +19,6 @@ export default function Products({ data, updateDataStock, amount }) {
             <div className='cartDisplay'>
                 <h2 id='cartDisplayTitle'>Cart</h2>
                 {productsAddedTextEl}
-                <Link to="/shoppingcart">
-                    <button className="toShopCartButton"> To shopping cart </button>
-                </Link>
             </div>
             <div>
                 <div className="productsContainer">

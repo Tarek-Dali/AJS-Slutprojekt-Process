@@ -21,9 +21,9 @@ export default function ShoppingCart({ functions, data, amount }) {
                 <h2 id="shoppingCartTitle">Shopping cart </h2>
                 {productsAddedTextEl}
                 <h2>to the cart and the total price is {price} kr</h2>
-            
-            <CompletePurchase functions={functions} />
-            <EmptyCartButton functions={functions} />
+
+                <CompletePurchase functions={functions} />
+                <EmptyCartButton functions={functions} />
             </div>
         </>
     );

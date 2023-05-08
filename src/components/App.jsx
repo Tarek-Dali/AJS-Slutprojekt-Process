@@ -1,6 +1,7 @@
 import '../css/App.css'
 import Products from './Products'
 import ShoppingCart from './ShoppingCart';
+import Navbar from './Navbar';
 import { useEffect, useState } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -41,18 +42,18 @@ export default function App() {
         await fetch(url, options);
     }
 
-    // Reduces stock of a product by 1 while adding 1 in amount to keep count of products added
-    function updateDataStock(object, place) {
+    // Reduces stock of a product by 1 while adding 1 in amount to keep count of products added,
+    // setAmount changes useState which causes App to run again to re-render changes
+    function updateDataStock(object, index) {
         if (object.stock > 0) {
             object.stock -= 1;
 
-            const updatedAmount = [...amount];
-            updatedAmount[place] += 1;
-            setAmount(updatedAmount);
+            amount[index] += 1;
+            setAmount([...amount]);
         }
     }
 
-    // Sets amount to 0's again
+    // Sets amount to 0's again, thus emptying the cart
     function emptyCart() {
         let arrayLength = data.length;
         setAmount(Array(arrayLength).fill(0));
@@ -69,7 +70,9 @@ export default function App() {
         <>
             {loadingFinished ?
                 <>
+
                     <Router>
+                        <Navbar />
                         <Switch>
                             <Route exact path="/">
                                 <Products data={data} updateDataStock={updateDataStock} amount={amount} />

@@ -12,6 +12,30 @@ button {
     background-color: antiquewhite;
 }
 
+/* -- Navbar css */
+.navbar {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: rgb(221, 227, 174);
+    justify-content: center;
+    gap: 100px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar a {
+    color: rgb(3, 17, 2);
+    font-size: 50px;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.navbar a:hover {
+    color: rgb(235, 10, 10);
+}
+/* -- */
+
 /* -- Products elements css */
 
 .img-size {
@@ -35,17 +59,10 @@ button {
 .productsContainer div button:active {
     background-color: orange;
 }
+
 /* -- */
 
 /* -- Side cart display*/
-.toShopCartButton {
-    margin: auto;
-    margin-bottom: 5px;
-    margin-left: 33.3%;
-    margin-right: 33.3%;
-    width: 33.4%;
-    background-color: orange;
-}
 
 #cartDisplayTitle {
     color: black;
@@ -55,11 +72,12 @@ button {
     text-align: center;
     background-color: green;
     border: 2px solid black;
-    position: fixed;
+    position: absolute;
     width: 380px;
-    left: 1500px;
+    left: calc(50% + 550px);
     top: 150px;
 }
+
 /* -- */
 
 /* -- Shopping cart div css */
@@ -88,6 +106,7 @@ button {
     width: 200px;
     background-color: orange;
 }
+
 /* -- */
 
 
