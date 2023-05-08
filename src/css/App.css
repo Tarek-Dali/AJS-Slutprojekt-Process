@@ -116,17 +116,9 @@ button {
     }
 
     .cartDisplay {
-        top: 50px;
-        left: 1216px;
+        top: 100px;
+        left: calc(50% + 450px);
         width: 250px;
-    }
-    .toShopCartButton {
-        margin: auto;
-        margin-bottom: 5px;
-        margin-left: 26%;
-        margin-right: 26%;
-        width: 50%;
-        background-color: orange;
     }
 }
 
