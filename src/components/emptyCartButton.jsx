@@ -5,7 +5,7 @@ export default function EmptyCartButton({ functions }) {
     return (
         <>
             <Link to="/">
-                <button onClick={() => { functions.emptyCart(); functions.setLoadingFinished(false); }} >Empty cart</button>
+                <button onClick={() => { functions.emptyCart(); }} >Empty cart</button>
             </Link>
 
         </>

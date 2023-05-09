@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 let functions;
+let dataClone = [];
 
 
 const url = 'https://ajutprojekt-default-rtdb.europe-west1.firebasedatabase.app/products.json';
@@ -21,6 +22,7 @@ export default function App() {
             const data = await response.json();
             setAmount(Array(data.length).fill(0));
             setData(data);
+            dataClone = structuredClone(data);
             setLoadingFinished(true);
         }
 
@@ -53,16 +55,28 @@ export default function App() {
         }
     }
 
-    // Sets amount to 0's again, thus emptying the cart
+    // Sets amount to 0's again, thus emptying the cart and restores stock that went to the cart
     function emptyCart() {
         let arrayLength = data.length;
+        setData([...dataClone])
         setAmount(Array(arrayLength).fill(0));
     }
+
+    // Empties selected 1 selected product from cart, restores its stock in Products page
+    function empty1TypeFromCart(index) {
+        data[index].stock += 1; 
+        
+        amount[index] -= 1;
+        setData([...data]);
+        setAmount([...amount]);
+    }
+    
 
     functions = {
         putFireBase,
         setLoadingFinished,
-        emptyCart
+        emptyCart,
+        empty1TypeFromCart
     }
 
 

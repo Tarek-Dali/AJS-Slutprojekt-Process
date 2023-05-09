@@ -10,7 +10,11 @@ export default function ShoppingCart({ functions, data, amount }) {
     for (let i = 0; i < data.length; i++) {
         if (amount[i] != 0) {
             const price = amount[i] * data[i].price;
-            productsAddedTextEl.push(<h2 key={i}>{amount[i]} {data[i].name} for {price} kr</h2>);
+            productsAddedTextEl.push(
+                <div key={i}>
+                    <h2>{amount[i]} {data[i].name} for {price} kr</h2>
+                    <button onClick={() => { functions.empty1TypeFromCart(i)}}>Remove</button>
+                </div>);
             totalPrice += amount[i] * data[i].price;
         }
     }
