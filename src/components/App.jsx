@@ -58,12 +58,12 @@ export default function App() {
     // Sets amount to 0's again, thus emptying the cart and restores stock that went to the cart
     function emptyCart() {
         let arrayLength = data.length;
-        setData([...dataClone])
+        setData(structuredClone(dataClone));
         setAmount(Array(arrayLength).fill(0));
     }
 
     // Empties selected 1 selected product from cart, restores its stock in Products page
-    function empty1TypeFromCart(index) {
+    function remove1Product(index) {
         data[index].stock += 1; 
         
         amount[index] -= 1;
@@ -76,7 +76,7 @@ export default function App() {
         putFireBase,
         setLoadingFinished,
         emptyCart,
-        empty1TypeFromCart
+        remove1Product
     }
 
 
