@@ -13,7 +13,7 @@ export default function ShoppingCart({ functions, data, amount }) {
             productsAddedTextEl.push(
                 <div key={i}>
                     <h2>{amount[i]} {data[i].name} for {price} kr</h2>
-                    <button onClick={() => { functions.remove1Product(i)}}>Remove</button>
+                    <button onClick={() => { functions.remove1Product(i) }}>Remove</button>
                 </div>);
             totalPrice += amount[i] * data[i].price;
         }

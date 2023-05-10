@@ -15,6 +15,7 @@ export default function App() {
     const [data, setData] = useState();
     const [amount, setAmount] = useState();
     const [loadingFinished, setLoadingFinished] = useState(false);
+    const [navbarTotalCount, setNavbarTotalCount] = useState(0);
 
     useEffect(() => {
         async function getFireBase() {
@@ -52,6 +53,8 @@ export default function App() {
 
             amount[index] += 1;
             setAmount([...amount]);
+
+            setNavbarTotalCount(navbarTotalCount + 1);
         }
     }
 
@@ -60,17 +63,21 @@ export default function App() {
         let arrayLength = data.length;
         setData(structuredClone(dataClone));
         setAmount(Array(arrayLength).fill(0));
+        setNavbarTotalCount(0);
     }
 
     // Empties selected 1 selected product from cart, restores its stock in Products page
     function remove1Product(index) {
-        data[index].stock += 1; 
-        
+        data[index].stock += 1;
+
         amount[index] -= 1;
         setData([...data]);
         setAmount([...amount]);
+
+
+        setNavbarTotalCount(navbarTotalCount - 1);
     }
-    
+
 
     functions = {
         putFireBase,
@@ -86,7 +93,7 @@ export default function App() {
                 <>
 
                     <Router>
-                        <Navbar />
+                        <Navbar navbarTotalCount={navbarTotalCount} />
                         <Switch>
                             <Route exact path="/">
                                 <Products data={data} updateDataStock={updateDataStock} amount={amount} />
