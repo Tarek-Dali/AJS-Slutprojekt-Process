@@ -45,8 +45,7 @@ export default function App() {
         await fetch(url, options);
     }
 
-    // Reduces stock of a product by 1 while adding 1 in amount to keep count of products added,
-    // setAmount changes useState which causes App to run again to re-render changes
+    // Reduces stock of a product by 1 while adding 1 in amount to keep count of products added
     function updateDataStock(object, index) {
         if (object.stock > 0) {
             object.stock -= 1;
@@ -59,6 +58,7 @@ export default function App() {
     }
 
     // Sets amount to 0's again, thus emptying the cart and restores stock that went to the cart
+    //and restores stock to the same amount it was before they were added to cart
     function emptyCart() {
         let arrayLength = data.length;
         setData(structuredClone(dataClone));
@@ -66,14 +66,13 @@ export default function App() {
         setNavbarTotalCount(0);
     }
 
-    // Empties selected 1 selected product from cart, restores its stock in Products page
+    // Empties 1 selected product from cart, restores its stock in Products page
     function remove1Product(index) {
         data[index].stock += 1;
 
         amount[index] -= 1;
         setData([...data]);
         setAmount([...amount]);
-
 
         setNavbarTotalCount(navbarTotalCount - 1);
     }
